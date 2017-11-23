@@ -11,4 +11,32 @@
 
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(wf, s);
-            })();</script><div id="content" class="fullscreen"></div><script src="js/app.min.js"></script><script src="js/velocity.min.js"></script></body></html>
+            })();</script><div id="content" class="fullscreen"></div><script src="js/app.min.js"></script><script src="js/velocity.min.js"></script><script type="text/javascript">var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setCookieDomain", "*.jbilquez.fr"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//kaonet-fr.net/stats/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+
+var currentUrl = location.href;
+window.addEventListener('hashchange', function() {
+    _paq.push(['setReferrerUrl', currentUrl]);
+     currentUrl = '' + window.location.hash.substr(1);
+    _paq.push(['setCustomUrl', currentUrl]);
+
+    // remove all previously assigned custom variables, requires Piwik 3.0.2
+    _paq.push(['trackPageView']);
+    
+    // make Piwik aware of newly added content
+    var content = document.getElementById('content');
+    _paq.push(['MediaAnalytics::scanForMedia', content]);
+    _paq.push(['FormAnalytics::scanForForms', content]);
+    _paq.push(['trackContentImpressionsWithinNode', content]);
+    _paq.push(['enableLinkTracking']);
+});</script></body></html>
